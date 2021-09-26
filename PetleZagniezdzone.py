@@ -1,4 +1,3 @@
-"""
 ListaGosci = [
     ('Anna', 28, 'kobieta', 123456),
     ('Jan', 32, 'mezczyzna', 564786),
@@ -14,11 +13,11 @@ for imie, wiek, plec, telefon in ListaGosci:
     print("Plec: ", plec)
     print("Telefon: ", telefon)
     print("\n")
-"""
+
 oceny = {
     "Arkadiusz": (2, 5, 3, 4, 3),
     "Anna": (3, 4, 2, 3)
-}
+    }
 
 for klucz in oceny:
     print(klucz, "oceny: ", oceny[klucz])
