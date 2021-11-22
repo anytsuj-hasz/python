@@ -1,0 +1,55 @@
+import random
+from enum import Enum
+
+def approximateValue(value):
+    lowest = value - 0.1 * value
+    highest = value + 0.1 * value
+    return random.randint(lowest, highest)
+
+Event = Enum('Event', ['Chest', 'Empty'])
+eventDictionary = {
+                    Event.Chest: 0.6,
+                    Event.Empty: 0.4
+                }
+eventList = list(eventDictionary.keys())
+eventProbability = list(eventDictionary.values())
+
+Colours = Enum('Colours', ['Green', 'Orange', 'Purple', 'Gold'])
+colourDictionary = {
+                    Colours.Green: 0.75,
+                    Colours.Orange: 0.2,
+                    Colours.Purple: 0.04,
+                    Colours.Gold: 0.01
+                }
+colourList = list(colourDictionary.keys())
+colourProbability = list(colourDictionary.values())
+
+rewardsForChest = {
+                    colourList[reward]: (reward + 1) * (reward + 1) * 1000
+                    for reward in range(len(colourList))
+                }
+
+steps = 5
+points = 0
+
+print("Welcome to my game Chamber!!\n You have only 5 steps.\n")
+
+while steps > 0:
+    gamerAnswer = input("Do you want to move forward?")
+    if (gamerAnswer == "yes"):
+        print("See what you got..")
+        drawnEvent = random.choices(eventList, eventProbability)[0]
+        if (drawnEvent == Event.Chest):
+            print("   You've drawn a CHEST!")
+            colourChest = random.choices(colourList, colourProbability)[0]
+            print("The chest color is: ", colourChest)
+            gamerReward = approximateValue(rewardsForChest[colourChest])
+            points = points + gamerReward
+        elif (drawnEvent == Event.Empty):
+            print("   You've drawn nothing.")
+    else:
+        print("You can move only forward, please try again.")
+        continue
+    steps = steps -1
+
+print("Congratulation! You've acquired in game: ", points)
