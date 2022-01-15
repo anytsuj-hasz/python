@@ -54,4 +54,3 @@ zbiorLiczb = [
     if (liczba % 5 != 0)
     ]
 print(zbiorLiczb)
-
