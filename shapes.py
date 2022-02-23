@@ -12,19 +12,31 @@ class Square(Rectangle):
         #self.sideLength = sideLength
         super().__init__(sideLength, sideLength)
 
-class Cube(Square):
+
+class Cube():
+    def __init__(self, square: Square):
+        self.square = square
+        self.height = square.height
+
     def count_surface_area(self):
-        return super().count_surface_area() * 6
+        return self.square.count_surface_area() * 6
 
     def count_volume(self):
-        return super().count_surface_area() * self.height
+        return self.square.count_surface_area() * self.height
 
 
-square = Square(3)
+class Cuboid():
+    def __init__(self, figure, height):
+        self.base = figure
+        self.height = height
 
-print(square.count_surface_area())
+    def count_surface_area(self):
+        return 2 * self.base.count_surface_area() + 2 * self.base.width * self.height + 2 * self.base.height * self.height
 
-cube = Cube(5)
+    def count_volume(self):
+        return self.base.count_surface_area() * self.height
 
-print(cube.count_surface_area())
-print(cube.count_volume())
+
+cuboid = Cuboid(Rectangle(2,3), 4)
+print(cuboid.count_volume())
+print(cuboid.count_surface_area())
