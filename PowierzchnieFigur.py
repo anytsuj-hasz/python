@@ -14,4 +14,3 @@ def poleTrapezu(podstawaA, podstawaB, wysokosc):
 
 def poleKola(promien):
     return (math.pi * promien ** 2)
-

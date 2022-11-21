@@ -11,7 +11,7 @@ print(lista2)
 def choose(amount, x):
     return random.sample(range(0, x), amount)
 
-print(choose(3, 10))
+print(choose(5, 10))
 
 
 lista = [2, 4, 7, 8, 10, 13, 15, 18]
@@ -22,7 +22,8 @@ print(newLista)
 newLista = list(map(lambda x:x*x, lista))
 print(newLista)
 
-print((lambda x: x * 2)(4))
+print((lambda x: x * 2)(16))
 
 suma = reduce(lambda x, y: x + y, lista)
 print(suma)
+print(sum(lista))

@@ -7,16 +7,16 @@ choose_numbers(6, 49)
 
 # za pomoca petli
 
-lista = []
-
 def choose_numbers2(amount, total):
 
+    lista = []
     while len(lista) < amount:
         los = random.randint(0, total + 1)
         if los not in lista:
             lista.append(los)
         else:
             continue
+    return lista
 
-choose_numbers2(6, 49)
-print(lista)
+wynik = choose_numbers2(6, 49)
+print(wynik)
